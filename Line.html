@@ -1,0 +1,40 @@
+<html>
+
+<head>	
+	<title>D3 Practice</title>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+
+<body>	
+
+	<script>
+		var canvas = d3.select("body")
+					.append("svg")
+					.attr("width",2000)
+					.attr("height",3000);
+					
+		var widthScales = d3.scale.linear()
+						.domain([0,20])
+						.range([0,1000])
+						
+		var axis = d3.svg.axis().scale(widthScales)
+		
+		var line = canvas.append("line")
+					.attr("x1",400)
+					.attr("y1",100)
+					.attr("x2",450)
+					.attr("y2",250)
+					.attr("stroke","red")
+					.attr("strike-width",2);
+		var lineTransition = d3.select("line").transition();
+		lineTransition.delay(1000).duration(500).attr("transform", "rotate(60)");
+		
+		canvas.append("g").attr("transform","translate(5,0)").call(axis);
+		
+		
+		
+	</script>
+</body>
+
+
+</html>

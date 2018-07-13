@@ -1,0 +1,54 @@
+<html>
+
+<head>	
+	<title>D3 Practice</title>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+
+<body>	
+
+	<script>
+		var canvas = d3.select("body")
+					.append("svg")
+					.attr("width",2000)
+					.attr("height",3000);
+					
+		var circle = canvas.append("circle")
+					.attr("cx",200)
+					.attr("cy",50)
+					.attr("r",30)
+					.attr("stroke","blue")
+					.attr("fill","white");
+		
+		circle.transition().duration(500).delay(1000).attr("cx",800).attr("cy",300).attr("r",50	)
+			.each("start", function() {d3.select(this).attr("fill","green")});
+		
+		var rect = canvas.append("rect")
+					.attr("x",200)
+					.attr("y",125)
+					.attr("width",100)
+					.attr("height",50)
+					.attr("stroke","gray")
+					.attr("fill","white");
+		var rectTransition = d3.select("rect").transition();
+		rectTransition.delay(1000).duration(500).attr("transform", "rotate(45)")
+		.each("start", function() {d3.select(this).attr("fill","yellow")});
+	
+				
+		var line = canvas.append("line")
+					.attr("x1",500)
+					.attr("y1",100)
+					.attr("x2",550)
+					.attr("y2",300)
+					.attr("stroke","red")
+					.attr("strike-width",2);
+		var lineTransition = d3.select("line").transition();
+		lineTransition.delay(1000).duration(500).attr("transform", "rotate(60)");
+		
+		
+		
+	</script>
+</body>
+
+
+</html>

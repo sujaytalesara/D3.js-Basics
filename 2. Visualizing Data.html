@@ -1,0 +1,35 @@
+<html>
+
+<head>	
+	<title>D3 Practice</title>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+
+<body>	
+
+	<script>
+		var dataArray = [10, 30, 50];
+		
+		var color = d3.scale.linear()
+					.domain([0,100])
+					.range(["red","purple"])
+		
+		var canvas = d3.select("body")
+					.append("svg")
+					.attr("width",500)
+					.attr("height",500);
+					
+		var bar = canvas.selectAll("rect")
+					.data(dataArray)
+					.enter()
+						.append("rect")
+						.attr("width", function(d)	{	return d * 10})
+						.attr("height",50)
+						.attr("fill", function(d) { return color(d)})
+						.attr("y", function(d, i)	{	return i*100});
+		
+	</script>
+</body>
+
+
+</html>
